@@ -1,14 +1,39 @@
 //Global Variables
-color pink=#FF0009, gray=#C6C6C6, white=#FFFFFF, buttonColour;
+String powerButton = "Power";
+color pink=#FF0342, gray=#C6C6C6, white=#FFFFFF, buttonColour;
+float powerButtonX, powerButtonY, powerButtonWidth, powerButtonHeight;
 //
 void powerButton() { 
   //Population
-  rect(displayWidth*29/32, displayHeight*0/16, displayWidth*3/32, displayHeight*1/16);
+  powerButtonX =displayWidth*29/32;
+  powerButtonY=displayHeight*0/16;
+  powerButtonWidth=displayWidth*3/32;
+  powerButtonHeight=displayHeight*1/16;
 }//End powerButton()
 //
 void powerButtonDraw() {
   //Hoverover
+  if (mouseX>powerButtonX && mouseX<powerButtonX+powerButtonWidth && mouseY>powerButtonY && mouseY<powerButtonY+powerButtonHeight) {
+    buttonColour =gray;
+     hoverOverButtonFill();
+  } else {
+    buttonColour = pink;
+    fill(buttonColour);
+    rect(powerButtonX, powerButtonY, powerButtonWidth, powerButtonHeight);
+    fill(white);
+  }
   //Text
+  textCode(powerButton, 25, powerButtonX, powerButtonY, powerButtonWidth, powerButtonHeight);
 }//End powerButtonDraw() 
 //
-void powerButtonMousePressed() {}//End powerButtonMousePressed()
+void powerButtonMousePressed() {
+  if (mouseX>powerButtonX && mouseX<powerButtonX+powerButtonWidth && mouseY>powerButtonY && mouseY<powerButtonY+powerButtonHeight ) exit();
+}//End powerButtonMousePressed()
+//
+void hoverOverButtonFill() {
+    fill(buttonColour);
+    noStroke();
+    rect(powerButtonX, powerButtonY, powerButtonWidth, powerButtonHeight);
+    stroke(1);
+    fill(white);
+}//End hoverOverButtonFill()
