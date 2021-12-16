@@ -11,8 +11,6 @@ import ddf.minim.ugens.*;
 Minim minim; //create object to access all functions 
 AudioPlayer song1; //creates a "Play List" variable holding extensions WAV, AIFF, AU, SND AND MP3
 
-
-
 void setup() {
   fullScreen();
   population();
