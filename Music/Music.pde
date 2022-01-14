@@ -16,12 +16,17 @@ void setup() {
   textSetup();
   //
   minim = new Minim(this);
-  song1 = minim.loadFile("Music/Travis Scott - R.I.P. SCREW (Audio) (320 kbps).mp3");
+  song1 = minim.loadFile("Music/Kanye West - Off The Grid (Audio) (320 kbps).mp3");
   song1.play(1000);
 }//End setup()
 
 void draw() {
   powerButtonDraw();
+  //
+  if (song1.isLooping() ) {
+    println ("Is Looping");
+    println ( song1.loopCount() );
+ }
 }//End draw()
 
 void keyPressed() {
@@ -57,6 +62,8 @@ void keyPressed() {
       song1.mute();
     }
   }
+  //Loop Function
+  if (key == 'l' ||  key == 'L') song1.loop();
 }//End keyPressed()
 
 void mousePressed() {

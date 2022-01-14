@@ -1,6 +1,6 @@
 //Global Variables
 String powerButton = "Power";
-color pink=#FF0342, gray=#C6C6C6, white=#FFFFFF, buttonColour;
+color pink=#FF0033, gray=#C6C6C6, white=#FFFFFF, buttonColour;
 float powerButtonX, powerButtonY, powerButtonWidth, powerButtonHeight;
 //
 void powerButton() { 
