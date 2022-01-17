@@ -8,7 +8,9 @@ import ddf.minim.ugens.*;
 
 //Global Variable
 Minim minim; //create object to access all functions 
-AudioPlayer song1; //creates a "Play List" variable holding extensions WAV, AIFF, AU, SND AND MP3
+int numberOfSongs = 4;
+AudioPlayer[] song = new AudioPlayer[numberOfSongs]; //creates a "Play List" variable holding extensions WAV, AIFF, AU, SND AND MP3
+int currentSong = numberOfSongs - numberOfSongs; //Current song is 0
 
 void setup() {
   fullScreen();
@@ -16,8 +18,11 @@ void setup() {
   textSetup();
   //
   minim = new Minim(this);
-  song1 = minim.loadFile("Music/Kanye West - Off The Grid (Audio) (320 kbps).mp3");
-  song1.play(1000);
+  song[currentSong] = minim.loadFile("Music/Kanye West - Off The Grid (Audio) (320 kbps).mp3");
+  song[currentSong+1] = minim.loadFile("Music/family ties (320 kbps).mp3");
+  song[currentSong+2] = minim.loadFile("Music/Travis Scott - R.I.P. SCREW (Audio) (320 kbps).mp3");
+  song[currentSong+3] = minim.loadFile("Music/Kanye West - Hurricane (Audio) (320 kbps).mp3");
+  song[currentSong].play(1000);
 }//End setup()
 
 void draw() {
@@ -30,7 +35,11 @@ void draw() {
 }//End draw()
 
 void keyPressed() {
-   //PlayPause
+  currentSong ++; // = currentSong = + 1, +=1
+  if ( key == 'l' || key == 'L') song[currentSong].loop(0);
+}//End keyPressed()
+  
+   /*//PlayPause
   if (key == 'p') {
     if ( song1.isPlaying() ) {
       song1.pause();
